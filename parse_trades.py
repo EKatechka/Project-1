@@ -32,27 +32,27 @@ class TorgiParser:
             {
                 'name': 'Земельный участок для ИЖС, 10 соток', 
                 'price': 2500000, 
-                'link': 'https://torgi.gov.ru/lot/101'
+                'link': 'https://torgi.org/index.php?class=Auction&action=List&mod=Open&AuctionType=All'
             },
             {
                 'name': 'Офисное помещение 50 кв.м', 
                 'price': 1800000, 
-                'link': 'https://torgi.gov.ru/lot/102'
+                'link': 'https://torgi.org/index.php?class=Auction&action=List&mod=Open&AuctionType=All'
             },
             {
                 'name': 'Грузовой автомобиль Volvo', 
                 'price': 500000, 
-                'link': 'https://torgi.gov.ru/lot/103'
+                'link': 'https://torgi.org/index.php?class=Auction&action=List&mod=Open&AuctionType=All'
             },
             {
                 'name': 'Торговое оборудование', 
                 'price': 150000, 
-                'link': 'https://torgi.gov.ru/lot/104'
+                'link': 'https://torgi.org/index.php?class=Auction&action=List&mod=Open&AuctionType=All'
             },
             {
                 'name': 'Жилая квартира 75 кв.м', 
                 'price': 3500000, 
-                'link': 'https://torgi.gov.ru/lot/105'
+                'link': 'https://torgi.org/index.php?class=Auction&action=List&mod=Open&AuctionType=All'
             },
         ]
         
