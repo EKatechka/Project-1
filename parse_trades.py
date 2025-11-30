@@ -236,7 +236,7 @@ def main():
     
     # Загружаем данные
     print("Загружаем данные о лотах...")
-    all_lots = parser.create_sample_data()
+    all_lots = parser.parse_real_data()
     sorted_lots = parser.sort_lots_by_price(all_lots)
     
     # Показываем все лоты
