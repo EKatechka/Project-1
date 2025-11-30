@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ПАРСЕР САЙТА ТОРГОВ
 Автор: [Выборнова Екатерина]
@@ -18,6 +19,7 @@ class TorgiParser:
         """Конструктор - запускается при создании объекта"""
         self.lots = []  # Здесь будем хранить все лоты
         print("Парсер готов к работе!")
+    
     def create_sample_data(self):
         """
         Создаем демонстрационные данные о лотах
@@ -56,9 +58,10 @@ class TorgiParser:
         
         print(f"Создано {len(sample_lots)} демонстрационных лотов")
         return sample_lots
-          def sort_lots_by_price(self, lots):
+    
+    def sort_lots_by_price(self, lots):
         """Сортирует лоты от дорогих к дешевым"""
-        print("🔄 Сортируем лоты по цене...")
+        print("Сортируем лоты по цене...")
         # Сортируем по цене (reverse=True - от большего к меньшему)
         sorted_lots = sorted(lots, key=lambda x: x['price'], reverse=True)
         print("Сортировка завершена!")
@@ -71,10 +74,11 @@ class TorgiParser:
         
         for i, lot in enumerate(lots, 1):
             print(f"{i}. {lot['name']}")
-            print(f"Цена: {lot['price']:,.2f} ₽")  # Форматируем цену
-            print(f"Ссылка: {lot['link']}")
+            print(f"   Цена: {lot['price']:,.2f} ₽")  # Форматируем цену
+            print(f"   Ссылка: {lot['link']}")
             print("-" * 70)
-              def filter_lots_by_price(self, lots, min_price, max_price):
+    
+    def filter_lots_by_price(self, lots, min_price, max_price):
         """Фильтрует лоты по диапазону цен"""
         print(f"Фильтруем лоты от {min_price:,.0f} до {max_price:,.0f} ₽...")
         
@@ -86,7 +90,8 @@ class TorgiParser:
         
         print(f"Найдено {len(filtered_lots)} лотов")
         return filtered_lots
-          def save_to_json(self, lots, filename="lots.json"):
+    
+    def save_to_json(self, lots, filename="lots.json"):
         """Сохраняет лоты в JSON файл (удобно для программ)"""
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -105,7 +110,8 @@ class TorgiParser:
             print(f"Данные сохранены в {filename}")
         except Exception as e:
             print(f"Ошибка при сохранении: {e}")
-              def show_statistics(self, lots):
+    
+    def show_statistics(self, lots):
         """Показывает статистику по лотам"""
         if not lots:
             print("Нет данных для статистики")
@@ -114,13 +120,14 @@ class TorgiParser:
         # Собираем все цены в список
         prices = [lot['price'] for lot in lots]
         
-        print(f"\n СТАТИСТИКА:")
+        print(f"\nСТАТИСТИКА:")
         print(f"Всего лотов: {len(lots)}")
         print(f"Самый дорогой: {max(prices):,.2f} ₽")
         print(f"Самый дешёвый: {min(prices):,.2f} ₽")
         print(f"Средняя цена: {sum(prices) / len(prices):,.2f} ₽")
         print(f"Общая стоимость: {sum(prices):,.2f} ₽")
-      def main():
+
+def main():
     """Главная функция программы"""
     print("ПАРСЕР САЙТА ТОРГОВ")
     print("=" * 50)
@@ -147,7 +154,7 @@ class TorgiParser:
     parser.show_statistics(sorted_lots)
     
     # Фильтрация по цене
-    print("\n ФИЛЬТРАЦИЯ ПО ЦЕНЕ")
+    print("\nФИЛЬТРАЦИЯ ПО ЦЕНЕ")
     print("Введите диапазон цен (только цифры):")
     
     try:
@@ -163,7 +170,7 @@ class TorgiParser:
         
         # Показываем результат
         if filtered_lots:
-            print(f"\n Найдено {len(filtered_lots)} лотов:")
+            print(f"\nНайдено {len(filtered_lots)} лотов:")
             parser.display_lots(filtered_lots, 
                               f"Лоты от {min_price:,.0f} до {max_price:,.0f} ₽")
             
@@ -171,17 +178,17 @@ class TorgiParser:
             parser.save_to_json(filtered_lots, "filtered_lots.json")
             parser.save_to_csv(filtered_lots, "filtered_lots.csv")
         else:
-            print(f"\n Лотов в указанном диапазоне не найдено")
+            print(f"\nЛотов в указанном диапазоне не найдено")
             
     except ValueError:
         print("Ошибка! Вводите только цифры")
     
-    print("\n ПРОГРАММА ЗАВЕРШЕНА!")
+    print("\nПРОГРАММА ЗАВЕРШЕНА!")
     print("Созданные файлы:")
-    print("lots.json - все лоты (JSON)")
-    print("lots.csv - все лоты (CSV)")
-    print("filtered_lots.json - отфильтрованные лоты")
-    print("filtered_lots.csv - отфильтрованные лоты")
+    print("   lots.json - все лоты (JSON)")
+    print("   lots.csv - все лоты (CSV)")
+    print("   filtered_lots.json - отфильтрованные лоты")
+    print("   filtered_lots.csv - отфильтрованные лоты")
 
 # Запускаем программу, только если файл запущен напрямую
 if __name__ == "__main__":
